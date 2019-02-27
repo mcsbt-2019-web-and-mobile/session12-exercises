@@ -138,3 +138,9 @@ http://jinja.pocoo.org/docs/2.10/templates/#template-inheritance
 ## Blue belt
 
 ## Black belt
+
+Create a blogging system.  It should have:
+
+- a page for writing new posts
+- a page for displaying all posts titles
+- a page for displaying a specific post
