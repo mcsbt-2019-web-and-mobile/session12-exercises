@@ -2,19 +2,17 @@
 
 ## Software development for web and mobile. Session 12
 
-https://slides.com/pepegar/sdwm-12/live
-
 #
 
 ## Plan for today
 
-* Why we need templating?
+* Why do we need templating?
 * Understand HTML templating
 * Jinja + Flask
 
 #
 
-## Why we need HTML templating?
+## Why do we need HTML templating?
 
 ## The problem
 
@@ -198,17 +196,26 @@ We'll need to create different pages for all elements in the menu.
 
 #
 
+## Bootstrap
+
+Bootstrap is a frontend component library.  It contains styles and JS
+for a lot of different cases, and we can start using it with just a
+few lines of code:
+
+https://getbootstrap.com/
+
+## Example 6
+
+Integrating bootstrap in our simple web page.
+
+#
+
 ## Homework
-
-## White belt
-
-## Blue belt
-
-## Black belt
 
 Create a blogging system.  It should:
 
-- use Bootstrap for UI
 - have a page for writing new posts
-- have a page for displaying all posts titles
-- have a page for displaying a specific post
+- _blue_: have a page for displaying all posts titles
+- _blue_: have a page for displaying a specific post
+- _blue_: make all different screens use template inheritance
+- _black_: use Bootstrap for UI components
