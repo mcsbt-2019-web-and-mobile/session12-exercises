@@ -6,6 +6,10 @@ app = Flask(__name__)
 def index():
     return send_from_directory("html", "index.html")
 
+@app.route("/products")
+def products():
+    return send_from_directory("html", "products.html")
+
 @app.route("/css/<path>", methods = ["GET"])
 def serve_css(path):
     return send_from_directory("css", path)
