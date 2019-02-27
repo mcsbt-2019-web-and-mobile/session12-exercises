@@ -4,12 +4,12 @@
   <body>
     {% for item in items %}
       <article id="article-{{item.id}}">
-	    <img src="{{item.img}}"/>
-	    <div class="name">{{item.name}}</div>
-		<div class="price">{{item.price}}</div>
+        <img src="{{item.img}}"/>
+        <div class="name">{{item.name}}</div>
+        <div class="price">{{item.price}}</div>
         <div class="description">{{item.description}}</div>
-		<button class="buy">add to basket</div>
-	  </article>
+        <button class="buy">add to basket</div>
+      </article>
     {% endfor %}
   </body>
 </html>
