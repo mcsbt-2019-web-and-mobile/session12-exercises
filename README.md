@@ -126,6 +126,8 @@ See /example3
 We can perform iterative tasks inside templates as well!  We just need
 to use a for loop :)
 
+## loops
+
 ``` html
 <html>
   <head>
@@ -150,9 +152,41 @@ see /example4
 
 #
 
-## inheriting other templates
+## Template inheritance
 
-http://jinja.pocoo.org/docs/2.10/templates/#template-inheritance
+Inheritance is one of the most interesting features of Jinja.  When
+using inheritance, we'll create **parent** templates that will be extended
+by **child** templates.  **Child** templates will be able to override
+parent's blocks if needed.
+
+## Template inheritance
+
+When using inheritance, we will need to to add to the parent template
+the **blocks** that children will be able to override.  Let's see an
+example:
+
+``` html
+<html>
+  <head>
+    <title>{% block title %}{% endblock %}</title>
+  </head>
+  <body>
+    {% block body %}
+	{% endblock %}
+  </body>
+</html>
+```
+
+## Template inheritance
+
+Then later, when creating the **child** template, we need to tell
+jinja which template we're extending and what blocks we're overriding:
+
+``` html
+{% extends "base.html" %}
+{% block title %}this is my title!{% endblock %}
+{% block body %}<h1>this is generated using template inheritance!</h1>{% endblock %}
+```
 
 #
 
@@ -164,8 +198,9 @@ http://jinja.pocoo.org/docs/2.10/templates/#template-inheritance
 
 ## Black belt
 
-Create a blogging system.  It should have:
+Create a blogging system.  It should:
 
-- a page for writing new posts
-- a page for displaying all posts titles
-- a page for displaying a specific post
+- use Bootstrap for UI
+- have a page for writing new posts
+- have a page for displaying all posts titles
+- have a page for displaying a specific post
