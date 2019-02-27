@@ -123,7 +123,32 @@ See /example3
 
 ## loops
 
+We can perform iterative tasks inside templates as well!  We just need
+to use a for loop :)
 
+``` html
+<html>
+  <head>
+  </head>
+  <body>
+    {% for item in items %}
+      <article id="article-{{item.id}}">
+	    <img src="{{item.img}}"/>
+	    <div class="name">{{item.name}}</div>
+		<div class="price">{{item.price}}</div>
+        <div class="description">{{item.description}}</div>
+		<button class="buy">add to basket</div>
+	  </article>
+    {% endfor %}
+  </body>
+</html>
+```
+
+## Example 4
+
+see /example4
+
+#
 
 ## inheriting other templates
 
