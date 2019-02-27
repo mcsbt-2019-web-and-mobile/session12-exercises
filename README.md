@@ -88,11 +88,38 @@ def hello(name):
 
 see /example2
 
+#
+
 ## conditionals
 
 something very common in templating -and programming in general- is
 using conditionals.  We can use conditionals in templates to render
 different things depending on different conditions.
+
+## conditionals
+
+Since conditionals are statements (they don't produce a value), we'll
+use the `{% %}` syntax for them:
+
+``` html
+<html>
+  <head>
+  </head>
+  <body>
+    {% if user.logged %}
+      <h1>Hello {{user.name}}</h1>
+    {% else %}
+	  <h1>Hello, normal person. <button>login?</button></h1>
+    {% endif %}
+  </body>
+</html>
+```
+
+## Example 3
+
+See /example3
+
+#
 
 ## loops
 
