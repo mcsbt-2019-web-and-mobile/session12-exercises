@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="generator" content="pandoc">
+  <title></title>
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.7.0/css/reveal.css">
+  <style type="text/css">code{white-space: pre;}</style>
+  <style type="text/css">
+div.sourceCode { overflow-x: auto; }
+table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
+  margin: 0; padding: 0; vertical-align: baseline; border: none; }
+table.sourceCode { width: 100%; line-height: 100%; }
+td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
+td.sourceCode { padding-left: 5px; }
+code > span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code > span.dt { color: #902000; } /* DataType */
+code > span.dv { color: #40a070; } /* DecVal */
+code > span.bn { color: #40a070; } /* BaseN */
+code > span.fl { color: #40a070; } /* Float */
+code > span.ch { color: #4070a0; } /* Char */
+code > span.st { color: #4070a0; } /* String */
+code > span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code > span.ot { color: #007020; } /* Other */
+code > span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code > span.fu { color: #06287e; } /* Function */
+code > span.er { color: #ff0000; font-weight: bold; } /* Error */
+code > span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+code > span.cn { color: #880000; } /* Constant */
+code > span.sc { color: #4070a0; } /* SpecialChar */
+code > span.vs { color: #4070a0; } /* VerbatimString */
+code > span.ss { color: #bb6688; } /* SpecialString */
+code > span.im { } /* Import */
+code > span.va { color: #19177c; } /* Variable */
+code > span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code > span.op { color: #666666; } /* Operator */
+code > span.bu { } /* BuiltIn */
+code > span.ex { } /* Extension */
+code > span.pp { color: #bc7a00; } /* Preprocessor */
+code > span.at { color: #7d9029; } /* Attribute */
+code > span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code > span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+  </style>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.7.0/css/theme/beige.css" id="theme">
+  <!-- Printing and PDF exports -->
+  <script>
+    var link = document.createElement( 'link' );
+    link.rel = 'stylesheet';
+    link.type = 'text/css';
+    link.href = window.location.search.match( /print-pdf/gi ) ? 'https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.7.0/css/print/pdf.css' : 'https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.7.0/css/print/paper.css';
+    document.getElementsByTagName( 'head' )[0].appendChild( link );
+  </script>
+  <!--[if lt IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.7.0/lib/js/html5shiv.js"></script>
+  <![endif]-->
+</head>
+<body>
+  <div class="reveal">
+    <div class="slides">
+
+
+<section id="section" class="level1">
+<h1></h1>
+<section id="software-development-for-web-and-mobile.-session-12" class="level2">
+<h2>Software development for web and mobile. Session 12</h2>
+</section>
+</section>
+<section id="section-1" class="level1">
+<h1></h1>
+<section id="plan-for-today" class="level2">
+<h2>Plan for today</h2>
+<ul>
+<li>Why do we need templating?</li>
+<li>Understand HTML templating</li>
+<li>Jinja + Flask</li>
+</ul>
+</section>
+</section>
+<section id="section-2" class="level1">
+<h1></h1>
+<section id="why-do-we-need-html-templating" class="level2">
+<h2>Why do we need HTML templating?</h2>
+</section>
+<section id="the-problem" class="level2">
+<h2>The problem</h2>
+<p>Imagine we're trying to create a web application with, say, five different screens. Using the approach we've been following until now, we would need to repeat some common code in all screens.</p>
+</section>
+<section id="example-1" class="level2">
+<h2>Example 1</h2>
+<p>See /example1 project.</p>
+<p><strong>What should we do for creating the products page?</strong></p>
+</section>
+</section>
+<section id="section-3" class="level1">
+<h1></h1>
+<section id="introducing-templating" class="level2">
+<h2>Introducing templating</h2>
+<p>HTML templating is a technique we will use to make writing HTML more pleasant, easy, and less repetitive.</p>
+</section>
+<section id="jinja-templates" class="level2">
+<h2>Jinja templates</h2>
+<p>Jinja is a framework for HTML templating that is already integrated with Flask. With Jinja we can:</p>
+<ul>
+<li>Using variables</li>
+<li>use conditionals</li>
+<li>use loops</li>
+<li>inherit other templates</li>
+</ul>
+</section>
+<section id="jinja-syntax" class="level2">
+<h2>Jinja syntax</h2>
+<p>We write Jinja templates in plain HTML documents. Apart of the normal HTML syntax, we get two new <em>tags</em>.</p>
+<ul>
+<li><code>{{ }}</code> for expressions.</li>
+<li><code>{% %}</code> for statements. (control flow)</li>
+</ul>
+</section>
+<section id="using-variables-in-templates" class="level2">
+<h2>Using variables in templates</h2>
+<p>We can use Jinja to write HTML templates that have parametrized variables:</p>
+<div class="sourceCode"><pre class="sourceCode html"><code class="sourceCode html"><span class="kw">&lt;html&gt;</span>
+  <span class="kw">&lt;head&gt;</span>
+    <span class="kw">&lt;title&gt;</span>Hello {{name}}!<span class="kw">&lt;/title&gt;</span>
+  <span class="kw">&lt;/head&gt;</span>
+  <span class="kw">&lt;body&gt;</span>
+    <span class="kw">&lt;h1&gt;</span>Hello {{name}}!<span class="kw">&lt;/h1&gt;</span>
+  <span class="kw">&lt;/body&gt;</span>
+<span class="kw">&lt;/html&gt;</span></code></pre></div>
+</section>
+<section id="rendering-templates-from-flask" class="level2">
+<h2>Rendering templates from Flask</h2>
+<p>There is a <code>render_template</code> function that we can impoort from <code>flask</code> to render templates. Something important to take into consideration is that flask is going to look for templates in the <code>templates</code> directory.</p>
+</section>
+<section id="rendering-templates-from-flask-1" class="level2">
+<h2>Rendering templates from Flask</h2>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python"><span class="at">@app.route</span>(<span class="st">&quot;/hello/&lt;name&gt;&quot;</span>)
+<span class="kw">def</span> hello(name):
+    <span class="cf">return</span> render_template(<span class="st">&quot;hello.html&quot;</span>, name<span class="op">=</span>name)</code></pre></div>
+</section>
+<section id="example-2" class="level2">
+<h2>Example 2</h2>
+<p>see /example2</p>
+</section>
+</section>
+<section id="section-4" class="level1">
+<h1></h1>
+<section id="conditionals" class="level2">
+<h2>conditionals</h2>
+<p>something very common in templating -and programming in general- is using conditionals. We can use conditionals in templates to render different things depending on different conditions.</p>
+</section>
+<section id="conditionals-1" class="level2">
+<h2>conditionals</h2>
+<p>Since conditionals are statements (they don't produce a value), we'll use the <code>{% %}</code> syntax for them:</p>
+<div class="sourceCode"><pre class="sourceCode html"><code class="sourceCode html"><span class="kw">&lt;html&gt;</span>
+  <span class="kw">&lt;head&gt;</span>
+  <span class="kw">&lt;/head&gt;</span>
+  <span class="kw">&lt;body&gt;</span>
+    {% if user.logged %}
+      <span class="kw">&lt;h1&gt;</span>Hello {{user.name}}<span class="kw">&lt;/h1&gt;</span>
+    {% else %}
+      <span class="kw">&lt;h1&gt;</span>Hello, normal person. <span class="kw">&lt;button&gt;</span>login?<span class="kw">&lt;/button&gt;&lt;/h1&gt;</span>
+    {% endif %}
+  <span class="kw">&lt;/body&gt;</span>
+<span class="kw">&lt;/html&gt;</span></code></pre></div>
+</section>
+<section id="example-3" class="level2">
+<h2>Example 3</h2>
+<p>See /example3</p>
+</section>
+</section>
+<section id="section-5" class="level1">
+<h1></h1>
+<section id="loops" class="level2">
+<h2>loops</h2>
+<p>We can perform iterative tasks inside templates as well! We just need to use a for loop :)</p>
+</section>
+<section id="loops-1" class="level2">
+<h2>loops</h2>
+<div class="sourceCode"><pre class="sourceCode html"><code class="sourceCode html"><span class="kw">&lt;html&gt;</span>
+  <span class="kw">&lt;head&gt;</span>
+  <span class="kw">&lt;/head&gt;</span>
+  <span class="kw">&lt;body&gt;</span>
+    {% for item in items %}
+      <span class="kw">&lt;article</span><span class="ot"> id=</span><span class="st">&quot;article-{{item.id}}&quot;</span><span class="kw">&gt;</span>
+        <span class="kw">&lt;img</span><span class="ot"> src=</span><span class="st">&quot;{{item.img}}&quot;</span><span class="kw">/&gt;</span>
+        <span class="kw">&lt;div</span><span class="ot"> class=</span><span class="st">&quot;name&quot;</span><span class="kw">&gt;</span>{{item.name}}<span class="kw">&lt;/div&gt;</span>
+        <span class="kw">&lt;div</span><span class="ot"> class=</span><span class="st">&quot;price&quot;</span><span class="kw">&gt;</span>{{item.price}}<span class="kw">&lt;/div&gt;</span>
+        <span class="kw">&lt;div</span><span class="ot"> class=</span><span class="st">&quot;description&quot;</span><span class="kw">&gt;</span>{{item.description}}<span class="kw">&lt;/div&gt;</span>
+        <span class="kw">&lt;button</span><span class="ot"> class=</span><span class="st">&quot;buy&quot;</span><span class="kw">&gt;</span>add to basket<span class="kw">&lt;/div&gt;</span>
+      <span class="kw">&lt;/article&gt;</span>
+    {% endfor %}
+  <span class="kw">&lt;/body&gt;</span>
+<span class="kw">&lt;/html&gt;</span></code></pre></div>
+</section>
+<section id="example-4" class="level2">
+<h2>Example 4</h2>
+<p>see /example4</p>
+</section>
+</section>
+<section id="section-6" class="level1">
+<h1></h1>
+<section id="template-inheritance" class="level2">
+<h2>Template inheritance</h2>
+<p>Inheritance is one of the most interesting features of Jinja. When using inheritance, we'll create <strong>parent</strong> templates that will be extended by <strong>child</strong> templates. <strong>Child</strong> templates will be able to override parent's blocks if needed.</p>
+</section>
+<section id="template-inheritance-1" class="level2">
+<h2>Template inheritance</h2>
+<p>When using inheritance, we will need to to add to the parent template the <strong>blocks</strong> that children will be able to override. Let's see an example:</p>
+<div class="sourceCode"><pre class="sourceCode html"><code class="sourceCode html"><span class="kw">&lt;html&gt;</span>
+  <span class="kw">&lt;head&gt;</span>
+    <span class="kw">&lt;title&gt;</span>{% block title %}{% endblock %}<span class="kw">&lt;/title&gt;</span>
+  <span class="kw">&lt;/head&gt;</span>
+  <span class="kw">&lt;body&gt;</span>
+    {% block body %}
+    {% endblock %}
+  <span class="kw">&lt;/body&gt;</span>
+<span class="kw">&lt;/html&gt;</span></code></pre></div>
+</section>
+<section id="template-inheritance-2" class="level2">
+<h2>Template inheritance</h2>
+<p>Then later, when creating the <strong>child</strong> template, we need to tell jinja which template we're extending and what blocks we're overriding:</p>
+<div class="sourceCode"><pre class="sourceCode html"><code class="sourceCode html">{% extends &quot;base.html&quot; %}
+{% block title %}this is my title!{% endblock %}
+{% block body %}<span class="kw">&lt;h1&gt;</span>this is generated using template inheritance!<span class="kw">&lt;/h1&gt;</span>{% endblock %}</code></pre></div>
+</section>
+</section>
+<section id="section-7" class="level1">
+<h1></h1>
+<section id="exercises" class="level2">
+<h2>Exercises</h2>
+<p>Remember <code>/example1</code>? let's solve it by using template inheritance!</p>
+<p>We'll need to create different pages for all elements in the menu.</p>
+</section>
+</section>
+<section id="section-8" class="level1">
+<h1></h1>
+<section id="bootstrap" class="level2">
+<h2>Bootstrap</h2>
+<p>Bootstrap is a frontend component library. It contains styles and JS for a lot of different cases, and we can start using it with just a few lines of code:</p>
+<p>https://getbootstrap.com/</p>
+</section>
+<section id="example-6" class="level2">
+<h2>Example 6</h2>
+<p>Integrating bootstrap in our simple web page.</p>
+</section>
+</section>
+<section id="section-9" class="level1">
+<h1></h1>
+<section id="homework" class="level2">
+<h2>Homework</h2>
+<p>Create a blogging system. It should:</p>
+<ul>
+<li>have a page for writing new posts</li>
+<li><em>blue</em>: have a page for displaying all posts titles</li>
+<li><em>blue</em>: have a page for displaying a specific post</li>
+<li><em>blue</em>: make all different screens use template inheritance</li>
+<li><em>black</em>: use Bootstrap for UI components</li>
+</ul>
+</section>
+</section>
+    </div>
+  </div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.7.0/lib/js/head.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.7.0/js/reveal.js"></script>
+
+  <script>
+
+      // Full list of configuration options available at:
+      // https://github.com/hakimel/reveal.js#configuration
+      Reveal.initialize({
+        // Transition style
+        transition: 'linear', // none/fade/slide/convex/concave/zoom
+
+        // Optional reveal.js plugins
+        dependencies: [
+          { src: 'https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.7.0/lib/js/classList.js', condition: function() { return !document.body.classList; } },
+          { src: 'https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.7.0/plugin/zoom-js/zoom.js', async: true },
+              { src: 'https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.7.0/plugin/notes/notes.js', async: true }
+        ]
+      });
+    </script>
+    </body>
+</html>
