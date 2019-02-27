@@ -192,6 +192,14 @@ jinja which template we're extending and what blocks we're overriding:
 
 ## Exercises
 
+Remember `/example1`?  let's solve it by using template inheritance!
+
+We'll need to create different pages for all elements in the menu.
+
+#
+
+## Homework
+
 ## White belt
 
 ## Blue belt

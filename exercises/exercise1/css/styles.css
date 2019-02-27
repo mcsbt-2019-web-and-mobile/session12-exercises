@@ -1,0 +1,19 @@
+#container {
+    width: 600px;
+    margin: auto;
+}
+
+#main-menu li {
+    display: inline;
+    float: left;
+    margin-right: 10px;
+    background-color: #eee;
+}
+
+#main {
+    padding: 30px;
+}
+
+.clearfix {
+    overflow: auto;
+}
